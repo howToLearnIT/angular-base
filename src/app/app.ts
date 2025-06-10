@@ -1,27 +1,19 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-user',
+  standalone: true,
   template: `
-    Добро пожаловать в {{ city }}.
-
-    2 + 2 = {{ 2 + 2 }} 
-  
-    {{ decision }}
-
-    {{ sayHello() }}
+    Юзер: {{ username }}
   `,
-  styleUrl: 'app.css'
 })
-export class App {
-  city = 'Лондон';
-  isActive = false;
-
-  get decision() {
-    return this.isActive ? 'Да' : 'Нет';
-  }
-
-  sayHello() {
-    return 'Привет';
-  }
+export class User {
+  username = 'Иван';
 }
+
+@Component({
+  selector: 'app-root',
+  template: `<section><app-user /></section>`,
+  imports: [User]
+})
+export class App {}
