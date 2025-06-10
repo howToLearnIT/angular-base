@@ -1,19 +1,15 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app-user',
-  standalone: true,
+  selector: 'app-root',
   template: `
-    Юзер: {{ username }}
+    @if (isLoggedIn) {
+      <p>Вы авторизованы!</p>
+    } @else {
+      <p>Авторизуйтесь!</p>
+    }
   `,
 })
-export class User {
-  username = 'Иван';
+export class App {
+  isLoggedIn = false;
 }
-
-@Component({
-  selector: 'app-root',
-  template: `<section><app-user /></section>`,
-  imports: [User]
-})
-export class App {}
