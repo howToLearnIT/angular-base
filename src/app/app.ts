@@ -3,17 +3,15 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    @for (user of users; track user.id) {
-      <p>{{ user.name }}</p>
-    }
+    <div [contentEditable]="isEditable">Какой-то текст</div> <br/>
+    <img 
+      [src]="imageSrc" 
+      alt="photo" 
+      width="100"
+    />
   `,
 })
 export class App {
-  users = [
-    {id: 0, name: 'Sarah'}, 
-    {id: 1, name: 'Amy'}, 
-    {id: 2, name: 'Rachel'}, 
-    {id: 3, name: 'Jessica'}, 
-    {id: 4, name: 'Poornima'},
-  ];
+  isEditable = true;
+  imageSrc = 'https://avatars.mds.yandex.net/get-mpic/12012798/2a0000019399d29b50c02d214bc74786d29d/orig'; 
 }
