@@ -3,15 +3,19 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <div [contentEditable]="isEditable">Какой-то текст</div> <br/>
-    <img 
-      [src]="imageSrc" 
-      alt="photo" 
-      width="100"
-    />
+      <button (click)="onClick($event)"> Кнопка </button> <br/> <br/>
+      <button (click)="$event.stopPropagation()"> Кнопка </button> <br/><br/>
+
+      <div (mouseover)="onMouseOver()"> Какой-то текст </div>
   `,
 })
 export class App {
-  isEditable = true;
-  imageSrc = 'https://avatars.mds.yandex.net/get-mpic/12012798/2a0000019399d29b50c02d214bc74786d29d/orig'; 
+  onClick(event: MouseEvent) {
+      event.stopPropagation()
+      console.log('Обработал клик по кнопочке', event);
+  }
+
+  onMouseOver() {
+    console.log('Обработали наведение мышью');
+  }
 }
