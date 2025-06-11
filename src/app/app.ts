@@ -1,34 +1,15 @@
-import {Component, input, output} from '@angular/core';
-
-@Component({
-  selector: 'app-user',
-  template: `
-    <p>Имя пользователя: {{ name() }} и ID {{id()}} </p>
-    <button (click)="onLogout()"> Выйти </button>
-  `,
-})
-export class User {
-    id = input<number>(0);
-    name = input<string>('username');
-    logoutEvent = output<number>();
-
-    onLogout() {
-      console.log('Выход');
-      this.logoutEvent.emit(this.id());
-    }
-}
+import {Component} from '@angular/core';
+import {Comments} from './comments';
 
 @Component({
   selector: 'app-root',
   template: `
-      <app-user [name]="name" (logoutEvent)="onLogout($event)"/>
+    <div>
+      <h1>Статья про Angular</h1>
+      <article> Текст статьи </article>
+      <comments />
+    </div>
   `,
-  imports: [User],
+  imports: [Comments],
 })
-export class App {
-  name = 'Иван';
-
-  onLogout(id: number) {
-    console.log('В компоненте APP получили событие выхода от', id);
-  }
-}
+export class App {}
