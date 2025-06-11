@@ -1,21 +1,26 @@
-import {Component} from '@angular/core';
+import {Component, input} from '@angular/core';
+
+@Component({
+  selector: 'app-user',
+  template: `
+    <p>Имя пользователя: {{ name() }} и ID {{id()}} </p>
+  `,
+})
+export class User {
+    id = input<number>(0);
+    name = input<string>('username');
+}
 
 @Component({
   selector: 'app-root',
   template: `
-      <button (click)="onClick($event)"> Кнопка </button> <br/> <br/>
-      <button (click)="$event.stopPropagation()"> Кнопка </button> <br/><br/>
+      <app-user [name]="name" />
 
-      <div (mouseover)="onMouseOver()"> Какой-то текст </div>
+      <app-user name="Слава" />
+      <app-user [id]="1" />
   `,
+  imports: [User],
 })
 export class App {
-  onClick(event: MouseEvent) {
-      event.stopPropagation()
-      console.log('Обработал клик по кнопочке', event);
-  }
-
-  onMouseOver() {
-    console.log('Обработали наведение мышью');
-  }
+  name = 'Иван';
 }
