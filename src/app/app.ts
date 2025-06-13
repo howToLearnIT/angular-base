@@ -1,17 +1,15 @@
 import {Component} from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
   template: `
-   <nav>
-      <a routerLink="/">Home</a>
-      |
-      <a routerLink="/user">User</a>
-    </nav>
-    
-    <router-outlet />
+    <p>Юзер: {{ username }}</p>
+    <p>{{ username }} знает фреймворк: {{ favoriteFramework }}</p>
+    <label for="framework">Любимый фреймворк:</label>
   `,
-  imports: [RouterOutlet, RouterLink],
+  imports: [],
 })
-export class App {}
+export class App {
+  username = 'Иван';
+  favoriteFramework = '';
+}
