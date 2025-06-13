@@ -17,10 +17,6 @@ import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
 
       <button type="submit">Отправить</button>
     </form>
-
-    <h2>Профайл</h2>
-    <p>Имя: {{ profileForm.value.name }}</p>
-    <p>Почта: {{ profileForm.value.email }}</p>
   `,
   imports: [ReactiveFormsModule],
 })
@@ -29,7 +25,7 @@ export class App {
     name: new FormControl(''),
     email: new FormControl(''),
   });
-
+  
   onSubmit() {
     alert(
       this.profileForm.value.name + ' | ' + this.profileForm.value.email
