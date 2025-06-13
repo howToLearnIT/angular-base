@@ -11,6 +11,8 @@ import {FormsModule} from '@angular/forms';
       Любимый фреймворк:
       <input id="framework" type="text" [(ngModel)]="favoriteFramework"/>
     </label>
+
+    <button>Отправить выбор</button>
   `,
   imports: [FormsModule],
 })
