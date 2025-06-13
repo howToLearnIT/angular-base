@@ -12,11 +12,15 @@ import {FormsModule} from '@angular/forms';
       <input id="framework" type="text" [(ngModel)]="favoriteFramework"/>
     </label>
 
-    <button>Отправить выбор</button>
+    <button (click)="onSend()">Отправить выбор</button>
   `,
   imports: [FormsModule],
 })
 export class App {
   username = 'Иван';
   favoriteFramework = '';
+  
+  onSend() {
+    alert(this.favoriteFramework);
+  }
 }
