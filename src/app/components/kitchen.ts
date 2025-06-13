@@ -1,17 +1,11 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
+import { DishService } from '../dish.service';
 
 @Component({
-  selector: 'kitchen',
-  template: `На кухне мы готовим: {{ getDishes() }}`,
+    selector: 'kitchen',
+    template: `На кухне мы готовим: {{ dishService.getDishes() }}`,
+    providers: [DishService],
 })
 export class Kitchen {
-    dishes = ['Цезарь', 'Пицца', 'Паста'];
-
-    getDishes(): string[] {
-        return this.dishes;
-    }
-
-    getDish(id: number) {
-        return this.dishes[id];
-    }
+    dishService = inject(DishService);
 }
