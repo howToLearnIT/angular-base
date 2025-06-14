@@ -3,10 +3,10 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    Реверсивное слово: {{ word }}
+    Реверсивный текст: {{ text }}
   `,
   imports: [],
 })
 export class App {
-  word = 'Мы почти у финиша!';
+  text = 'Мы почти у финиша!';
 }
