@@ -1,20 +1,12 @@
-import {Component, LOCALE_ID} from '@angular/core';
-import {DecimalPipe, DatePipe, CurrencyPipe} from '@angular/common';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   template: `
-    <ul>
-      <li>Число c двумя знаками после запятой {{ num | number: '3.2-2' }}</li>
-      <li>День рождения {{ birthday | date: 'full' : '+5' }}</li>
-      <li>Валюта {{ cost | currency: 'EUR' }}</li>
-    </ul>
+    Реверсивное слово: {{ word }}
   `,
-  imports: [DecimalPipe, DatePipe, CurrencyPipe],
-  providers: [{ provide: LOCALE_ID, useValue: 'ru-RU' }],
+  imports: [],
 })
 export class App {
-  num = 10000.1234;
-  birthday = new Date(2023, 3, 2);
-  cost = 4560.34;
+  word = 'Мы почти у финиша!';
 }
