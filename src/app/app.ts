@@ -1,14 +1,12 @@
 import {Component} from '@angular/core';
-import {Cafe, Kitchen} from './components';
 
 @Component({
   selector: 'app-root',
   template: `
-    <kitchen /> <br/><br/>
-    <cafe />
+    {{username}}
   `,
-  imports: [Cafe, Kitchen],
+  imports: [],
 })
 export class App {
-
+  username = 'пРоГрАмМиСт ДжУнИоР';
 }
