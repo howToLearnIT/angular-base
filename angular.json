@@ -5,6 +5,9 @@
   "projects": {
     "first-app": {
       "projectType": "application",
+      "i18n": {
+        "sourceLocale": "ru-RU"
+      },
       "schematics": {
         "@schematics/angular:component": {
           "inlineTemplate": true,
